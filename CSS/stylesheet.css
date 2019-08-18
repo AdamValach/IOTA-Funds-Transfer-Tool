@@ -1,0 +1,8 @@
+.text-field.error {
+    -fx-focus-color: #d35244;
+    -fx-text-box-border: #d35244 ;
+    -fx-faint-focus-color: #d3524422;
+
+    -fx-background-insets: -0.2, 1, -1.4, 3;
+    -fx-background-radius: 3, 2, 4, 0;
+}
