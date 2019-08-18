@@ -1,3 +1,4 @@
+import View.MainView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
@@ -15,9 +16,8 @@ import java.util.*;
 public class Main extends Application {
     private IotaAPI iotaAPI;
     private MainView theView;
-
     private static final String protocol = "https"; //YOUR NODE INFO GOES HERE
-    private static final String host = "nodees.thetangle.org"; //YOUR NODE INFO GOES HERE
+    private static final String host = "nodes.thetangle.org"; //YOUR NODE INFO GOES HERE
     private static final int port = 443; //YOUR NODE INFO GOES HERE
 
     public static void main(String[] args){

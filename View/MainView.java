@@ -1,3 +1,5 @@
+package View;
+
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -28,7 +30,6 @@ public class MainView {
         this.primaryStage = primaryStage;
     }
 
-
     public void setup() {
         scene = new Scene(grid, 1000,225);
         field1.setTranslateX(40);
@@ -49,7 +50,6 @@ public class MainView {
         field2.setPrefWidth(920);
         field5.setPrefWidth(920);
 
-
         button1.setTranslateX(275);
         button1.setTranslateY(170);
         button1.setPrefWidth(100);
@@ -67,7 +67,6 @@ public class MainView {
         button0.setPrefWidth(100);
 
         grid.getChildren().addAll(button0, label1);
-
 
         primaryStage.setScene(scene);
         primaryStage.show();
