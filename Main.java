@@ -37,8 +37,8 @@ public class Main extends Application {
             }
         });
         theView.button1.setOnAction(e -> {
-            theView.resetFields(125);
-            if(checkSeed(theView.field1.getText()) & checkAddress(theView.field2.getText()) & checkAmount(theView.field5.getText())) sendTransaction();
+            theView.resetFields(1235);
+            if(checkSeed(theView.field1.getText()) & checkAddress(theView.field2.getText()) & checkTag(theView.field3.getText()) & checkAmount(theView.field5.getText())) sendTransaction();
         });
         theView.button2.setOnAction(e -> {
             theView.resetFields(125);
@@ -66,9 +66,11 @@ public class Main extends Application {
     }
 
     public void sendTransaction() {
+        String tag = "IOTA9TRANSFER9TOOL";
+        if(!theView.field3.getText().isEmpty()) tag = theView.field3.getText();
         List<Transfer> transfers = new ArrayList<>();
         List<Input> inputlist = new ArrayList<>();
-        transfers.add(new Transfer(theView.field2.getText(), Integer.parseInt(theView.field5.getText()), TrytesConverter.asciiToTrytes("Sent with IOTA Funds Transfer Tool"),"TX"));
+        transfers.add(new Transfer(theView.field2.getText(), Integer.parseInt(theView.field5.getText()), TrytesConverter.asciiToTrytes(theView.field4.getText()), tag));
         if(theView.field5.getText().equals("0")) iotaAPI.sendTransfer(theView.field1.getText(), 2, 2, 14, transfers, null, null, false, true, null);
         else {
             inputlist.addAll(iotaAPI.getInputs(theView.field1.getText(), 2, 0, 30, 0).getInputs());
@@ -94,6 +96,18 @@ public class Main extends Application {
         }
         else for(int i = 0; i < 81; i++) if(!((seed.charAt(i) > 64 && seed.charAt(i) < 91) || seed.charAt(i) == 57)) {
             theView.incorrectField(1);
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkTag(String tag) {
+        if(tag.length() > 27) {
+            theView.incorrectField(3);
+            return false;
+        }
+        else for(int i = 0; i < tag.length(); i++) if(!((tag.charAt(i) > 64 && tag.charAt(i) < 91) || tag.charAt(i) == 57)) {
+            theView.incorrectField(3);
             return false;
         }
         return true;

@@ -8,5 +8,4 @@ Features:
 - Can interact with HTTP private tangle (Trinity does not support HTTP)
 
 TODO:
-- Add message and tag customization
 - Move console outputs to GUI

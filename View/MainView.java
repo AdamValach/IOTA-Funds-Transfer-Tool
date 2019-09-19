@@ -31,39 +31,45 @@ public class MainView {
     }
 
     public void setup() {
-        scene = new Scene(grid, 1000,225);
+        scene = new Scene(grid, 1000, 305);
         field1.setTranslateX(40);
         field2.setTranslateX(40);
+        field3.setTranslateX(40);
+        field4.setTranslateX(40);
         field5.setTranslateX(40);
 
         field1.setTranslateY(50);
         field2.setTranslateY(90);
-        field5.setTranslateY(130);
+        field3.setTranslateY(130);
+        field4.setTranslateY(170);
+        field5.setTranslateY(210);
 
         field1.setPromptText("Seed");
         field2.setPromptText("Address");
-        field3.setPromptText("Tag");
+        field3.setPromptText("Tag (Optional)");
         field4.setPromptText("Message (Optional)");
         field5.setPromptText("Amount");
 
         field1.setPrefWidth(920);
         field2.setPrefWidth(920);
+        field3.setPrefWidth(920);
+        field4.setPrefWidth(920);
         field5.setPrefWidth(920);
 
         button1.setTranslateX(275);
-        button1.setTranslateY(170);
+        button1.setTranslateY(250);
         button1.setPrefWidth(100);
 
         button2.setTranslateX(400);
-        button2.setTranslateY(170);
+        button2.setTranslateY(250);
         button2.setPrefWidth(100);
 
         button3.setTranslateX(525);
-        button3.setTranslateY(170);
+        button3.setTranslateY(250);
         button3.setPrefWidth(100);
 
         button0.setTranslateX(450);
-        button0.setTranslateY(170);
+        button0.setTranslateY(250);
         button0.setPrefWidth(100);
 
         grid.getChildren().addAll(button0, label1);
@@ -95,7 +101,7 @@ public class MainView {
     public void connectionUpdate(String IP) {
         label1.setText("Connected to: " + IP);
         grid.getChildren().remove(button0);
-        grid.getChildren().addAll(field1, field2, field5, button1, button2, button3);
+        grid.getChildren().addAll(field1, field2, field3, field4, field5, button1, button2, button3);
     }
 
     public void incorrectField(int field) {
